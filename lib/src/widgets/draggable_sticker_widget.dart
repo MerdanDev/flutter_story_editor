@@ -3,6 +3,7 @@ import 'package:flutter_story_editor/src/utils/matrix_gesture_detector.dart';
 
 class DraggableStickerWidget extends StatefulWidget {
   final String stickerPath;
+
   const DraggableStickerWidget({super.key, required this.stickerPath});
 
   @override
@@ -24,10 +25,15 @@ class _DraggableStickerWidgetState extends State<DraggableStickerWidget> {
         builder: (BuildContext context, Widget? child) {
           return Transform(
             transform: notifier.value,
-            child: Align(alignment: Alignment.center, child: Image.asset(widget.stickerPath)),
+            child: Align(
+              alignment: Alignment.center,
+              child: Image.asset(
+                widget.stickerPath,
+                package: 'flutter_story_editor',
+              ),
+            ),
           );
         },
-
       ),
     );
   }
